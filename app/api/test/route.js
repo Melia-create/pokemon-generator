@@ -15,5 +15,6 @@ export async function GET(request) {
       { role: "user", content: "Hello world" },
     ],
   });
+  console.log(completion.data.choices[0].message);
   return NextResponse.json({ message: "Hello World" }, { status: 200 });
 }
