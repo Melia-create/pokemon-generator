@@ -8,5 +8,12 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export async function GET(request) {
+  const completion = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    messages: [
+      { role: "system", content: "You are a helpful assistant." },
+      { role: "user", content: "Hello world" },
+    ],
+  });
   return NextResponse.json({ message: "Hello World" }, { status: 200 });
 }
