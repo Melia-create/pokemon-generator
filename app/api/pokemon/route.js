@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { POKEMON_ATTRIBUTES } from "@/app/data/pokemon";
 
 const { Configuration, OpenAIApi } = require("openai");
 
@@ -27,7 +28,10 @@ export async function GET(request) {
       - The type of Pokemon it is resistant against
       - The Retreat cost of the Pokemon
       - The Pokemon's appearance in less than 600 characters
-      - The Pokemon's backstory in less than 600 characters`,
+      - The Pokemon's backstory in less than 600 characters
+      Format the response in the following JSON object:
+      ${JSON.stringify(POKEMON_ATTRIBUTES)};
+      `,
       },
     ],
   });
